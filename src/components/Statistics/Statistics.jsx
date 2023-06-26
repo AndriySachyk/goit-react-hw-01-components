@@ -1,18 +1,18 @@
-import {Section, Title, StatList, Item, Label, Percentage} from './Statistics-style'
+import {SectionStatistics, TitleStatistics, StatListStatistics, ItemStatistics, LabelStatistics, PercentageStatistics} from './Statistics-style'
 
 
 
 export const Statistics = ({title, stats }) => {
-    return (<Section>
-  <Title>{title}</Title>
+    return (<SectionStatistics>
+  <TitleStatistics>{title}</TitleStatistics>
 
-  <StatList>
-    {stats.map(item => { return <Item id={item.id}>
-      <Label>{item.label}</Label>
-      <Percentage>{item.percentage}%</Percentage>
-    </Item>
+  <StatListStatistics>
+    {stats.map(item => { return <ItemStatistics key={item.id}>
+      <LabelStatistics>{item.label}</LabelStatistics>
+      <PercentageStatistics>{item.percentage}%</PercentageStatistics>
+    </ItemStatistics>
     })}
-  </StatList>
-</Section>
+  </StatListStatistics>
+</SectionStatistics>
     )
 }
