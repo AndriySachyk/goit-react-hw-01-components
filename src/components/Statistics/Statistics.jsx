@@ -1,4 +1,6 @@
-import {SectionStatistics, TitleStatistics, StatListStatistics, ItemStatistics, LabelStatistics, PercentageStatistics} from './Statistics-style'
+import PropTypes from 'prop-types'
+
+import { SectionStatistics, TitleStatistics, StatListStatistics, ItemStatistics, LabelStatistics, PercentageStatistics } from './Statistics-style'
 
 
 
@@ -15,4 +17,16 @@ export const Statistics = ({title, stats }) => {
   </StatListStatistics>
 </SectionStatistics>
     )
+}
+
+
+Statistics.propTypes = {
+  title: PropTypes.string.isRequired,
+  stats: PropTypes.arrayOf(
+      PropTypes.exact({
+        id: PropTypes.string.isRequired,
+        label: PropTypes.string.isRequired,
+        percentage: PropTypes.number.isRequired,
+      })
+    ).isRequired,
 }

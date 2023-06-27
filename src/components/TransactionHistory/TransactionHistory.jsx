@@ -1,3 +1,6 @@
+import PropTypes from 'prop-types'
+
+
 import {
     TabletTransactionHistory,
     TheadTransactionHistory,
@@ -32,4 +35,18 @@ export const TransactionHistory = ({items}) => {
             </TbodyTransactionHistory>
         </TabletTransactionHistory>
     )
+}
+
+
+
+TransactionHistory.propTypes = {
+    items: PropTypes.arrayOf(
+        PropTypes.exact({
+            id: PropTypes.string.isRequired,
+            type: PropTypes.string.isRequired,
+            amount: PropTypes.string.isRequired,
+            currency: PropTypes.string.isRequired,
+        })
+    )
+
 }

@@ -1,4 +1,7 @@
-import {FriendListUl, ItemFriendLi, StatsIsOnline, AvatarFriend, NameFriend} from './FriendList-style'
+import PropTypes from 'prop-types'
+
+
+import { FriendListUl, ItemFriendLi, StatsIsOnline, AvatarFriend, NameFriend } from './FriendList-style'
 
 
 export const FriendList = ({friends}) => {
@@ -11,4 +14,17 @@ export const FriendList = ({friends}) => {
 </ItemFriendLi>
         })}
     </FriendListUl>)
+}
+
+
+
+FriendList.propTypes = {
+    friends: PropTypes.arrayOf(
+        PropTypes.exact({
+            id: PropTypes.number.isRequired,
+            isOnline: PropTypes.bool.isRequired,
+            avatar: PropTypes.string.isRequired,
+            name: PropTypes.string.isRequired,
+            })
+    ),
 }
